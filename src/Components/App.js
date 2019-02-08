@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GlobalStyle from './GlobalStyle';
 import Name from './Name';
+import Clock from './Clock';
+import Todo from './Todo';
 
 class App extends Component {
 	state = {
@@ -27,7 +29,14 @@ class App extends Component {
 		return (
 			<div>
 				<GlobalStyle />
-				{name === null ? <Name saveName={this.saveName} /> : name}
+				{name === null ? (
+					<Name saveName={this.saveName} />
+				) : (
+					<>
+						<Clock name={name} />
+						<Todo />
+					</>
+				)}
 			</div>
 		);
 	}
