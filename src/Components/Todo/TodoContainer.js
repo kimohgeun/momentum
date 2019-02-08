@@ -32,7 +32,7 @@ class TodoContainer extends Component {
 			value: '',
 		});
         this.localStorageSave(todos);
-        this.ul.current.scrollTop = '28' + this.ul.current.scrollHeight;
+        this.ul.current.scrollTop = this.ul.current.scrollHeight;
 	};
 	handleDone = id => {
 		const todos = this.state.todos.map(todo => (todo.id === id ? { ...todo, done: !todo.done } : todo));

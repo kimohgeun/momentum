@@ -3,10 +3,12 @@ import GlobalStyle from './GlobalStyle';
 import Name from './Name';
 import Clock from './Clock';
 import Todo from './Todo';
+import Weather from './Weather';
 
 class App extends Component {
 	state = {
 		name: null,
+		loading: true,
 	};
 	saveName = data => {
 		this.setState({
@@ -35,6 +37,7 @@ class App extends Component {
 					<>
 						<Clock name={name} />
 						<Todo />
+						<Weather handleLoading={this.handleLoading} />
 					</>
 				)}
 			</div>
