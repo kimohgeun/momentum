@@ -40,12 +40,12 @@ const Item = styled.li`
 	font-size: 0.8rem;
 	display: flex;
 	align-items: center;
-	text-decoration: ${prop => (prop.done === true ? 'line-through' : 'none')};
 `;
 
 const Text = styled.span`
 	word-break: break-all;
 	width: 14rem;
+	text-decoration: ${prop => (prop.done === true ? 'line-through' : 'none')};
 `;
 
 const Remove = styled.i`
@@ -66,9 +66,9 @@ const Todo = ({ isOpen, value, todos, handleClick, ul, handleChange, handleSubmi
 			<span>Todo</span>
 			<List ref={ul}>
 				{todos.map(todo => (
-					<Item key={todo.id} done={todo.done}>
+					<Item key={todo.id}>
 						<input type="checkbox" checked={todo.done} onClick={() => handleDone(todo.id)} readOnly />
-						<Text>{todo.todo}</Text>
+						<Text done={todo.done}>{todo.todo}</Text>
 						<Remove className="fas fa-trash" onClick={() => handleRemove(todo.id)} />
 					</Item>
 				))}

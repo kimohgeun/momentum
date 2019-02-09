@@ -4,6 +4,7 @@ import Name from './Name';
 import Clock from './Clock';
 import Todo from './Todo';
 import Weather from './Weather';
+import Search from './Search';
 
 class App extends Component {
 	state = {
@@ -37,7 +38,8 @@ class App extends Component {
 					<>
 						<Clock name={name} />
 						<Todo />
-						<Weather handleLoading={this.handleLoading} />
+						<Weather />
+						<Search />
 					</>
 				)}
 			</div>
