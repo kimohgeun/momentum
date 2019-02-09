@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+// CSS
 import GlobalStyle from './GlobalStyle';
+// Components
 import Name from './Name';
 import Clock from './Clock';
 import Todo from './Todo';
 import Weather from './Weather';
 import Search from './Search';
+import Clear from './Clear/';
 
 class App extends Component {
 	state = {
 		name: null,
-		loading: true,
 	};
 	saveName = data => {
 		this.setState({
@@ -30,7 +32,7 @@ class App extends Component {
 	render() {
 		const { name } = this.state;
 		return (
-			<div>
+			<>
 				<GlobalStyle />
 				{name === null ? (
 					<Name saveName={this.saveName} />
@@ -40,9 +42,10 @@ class App extends Component {
 						<Todo />
 						<Weather />
 						<Search />
+						<Clear />
 					</>
 				)}
-			</div>
+			</>
 		);
 	}
 }

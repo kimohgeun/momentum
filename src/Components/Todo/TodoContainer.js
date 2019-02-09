@@ -49,7 +49,7 @@ class TodoContainer extends Component {
 		this.localStorageSave(todos);
 	};
 	localStorageSave = todos => {
-		localStorage.setItem('TODOS', JSON.stringify(todos));
+		localStorage.setItem('TODO', JSON.stringify(todos));
 	};
 	getTodos = () => {
 		const todos = localStorage.getItem('TODOS');
