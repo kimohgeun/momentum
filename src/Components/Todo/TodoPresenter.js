@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
 	position: fixed;
@@ -13,7 +14,6 @@ const Container = styled.div`
 const Toggle = styled.button`
 	all: unset;
 	margin: 1.5rem;
-	font-weight: bold;
 	cursor: pointer;
 `;
 
@@ -50,7 +50,7 @@ const Text = styled.span`
 
 const Remove = styled.i`
 	cursor: pointer;
-	color: #7f8c8d;
+	color: #fff;
 	font-size: 0.8rem;
 	margin-right: 1rem;
 `;
@@ -60,14 +60,14 @@ const Input = styled.input`
 	width: 100%;
 `;
 
-const Todo = ({ isOpen, value, todos, handleClick, ul, handleChange, handleSubmit, handleDone, handleRemove }) => (
+const Todo = ({ isOpen, value, todos, handleClick, ul, handleChange, handleSubmit, checkDone, handleRemove }) => (
 	<Container>
 		<Modal isOpen={isOpen}>
 			<span>Todo</span>
 			<List ref={ul}>
 				{todos.map(todo => (
 					<Item key={todo.id}>
-						<input type="checkbox" checked={todo.done} onClick={() => handleDone(todo.id)} readOnly />
+						<input type="checkbox" checked={todo.done} onClick={() => checkDone(todo.id)} readOnly />
 						<Text done={todo.done}>{todo.todo}</Text>
 						<Remove className="fas fa-trash" onClick={() => handleRemove(todo.id)} />
 					</Item>
@@ -80,5 +80,17 @@ const Todo = ({ isOpen, value, todos, handleClick, ul, handleChange, handleSubmi
 		<Toggle onClick={handleClick}>Todo</Toggle>
 	</Container>
 );
+
+Todo.propTypes = {
+	isOpen: PropTypes.bool.isRequired,
+	value: PropTypes.string.isRequired,
+	todos: PropTypes.array.isRequired,
+	handleClick: PropTypes.func.isRequired,
+	ul: PropTypes.object.isRequired,
+	handleChange: PropTypes.func.isRequired,
+	handleSubmit: PropTypes.func.isRequired,
+	checkDone: PropTypes.func.isRequired,
+	handleRemove: PropTypes.func.isRequired,
+};
 
 export default Todo;

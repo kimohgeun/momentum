@@ -17,9 +17,10 @@ class App extends Component {
 		this.setState({
 			name: data,
 		});
+		localStorage.setItem('MOMENTUM_NAME', data);
 	};
 	getName = () => {
-		const name = localStorage.getItem('NAME');
+		const name = localStorage.getItem('MOMENTUM_NAME');
 		if (name !== null) {
 			this.setState({
 				name,
@@ -39,9 +40,9 @@ class App extends Component {
 				) : (
 					<>
 						<Clock name={name} />
+						<Search />
 						<Todo />
 						<Weather />
-						<Search />
 						<Clear />
 					</>
 				)}

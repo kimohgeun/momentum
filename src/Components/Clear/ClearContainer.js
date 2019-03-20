@@ -11,15 +11,16 @@ class ClearContainer extends Component {
 		});
 	};
 	handleNameClear = () => {
-		localStorage.removeItem('NAME');
+		localStorage.removeItem('MOMENTUM_NAME');
 		window.location.reload()
 	};
 	handleTodoListClear = () => {
-		localStorage.removeItem('TODO');
+		localStorage.removeItem('MOMENTUM_TODO');
 		window.location.reload()
 	};
 	handleAllClear = () => {
-		localStorage.clear();
+		localStorage.removeItem('MOMENTUM_NAME');
+		localStorage.removeItem('MOMENTUM_TODO');
 		window.location.reload()
 	};
 	render() {

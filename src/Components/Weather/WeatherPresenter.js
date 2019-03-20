@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
+// 홈페이지 우측상단에 컴포넌트 위치
 const Container = styled.div`
 	position: fixed;
 	right: 0;
@@ -38,5 +40,11 @@ const Weather = ({ temp, name, location }) => (
 		<Location>{location}</Location>
 	</Container>
 );
+
+Weather.propTypes = {
+	temp: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	location: PropTypes.string.isRequired,
+};
 
 export default Weather;

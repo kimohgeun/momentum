@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
 	position: fixed;
@@ -8,7 +9,7 @@ const Container = styled.div`
 	margin: 1rem;
 `;
 
-const Icon = styled.i`
+const ModalButton = styled.i`
 	cursor: pointer;
 `;
 
@@ -44,8 +45,15 @@ const Clear = ({ isOpen, handleModal, handleNameClear, handleTodoListClear, hand
 				<i className="fas fa-trash" /> All Clear
 			</Text>
 		</Modal>
-		<Icon className="fas fa-cog" onClick={handleModal} />
+		<ModalButton className="fas fa-cog" onClick={handleModal} />
 	</Container>
 );
 
+Clear.propTypes = {
+	isOpen: PropTypes.bool.isRequired,
+	handleModal: PropTypes.func.isRequired,
+	handleNameClear: PropTypes.func.isRequired,
+	handleTodoListClear: PropTypes.func.isRequired,
+	handleAllClear: PropTypes.func.isRequired,
+};
 export default Clear;

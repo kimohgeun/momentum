@@ -3,22 +3,27 @@ import TodoPresenter from './TodoPresenter';
 import uuid from 'uuid';
 
 class TodoContainer extends Component {
+
 	state = {
 		isOpen: false,
 		todos: [],
 		value: '',
 	};
-	ul = React.createRef();
+
 	handleClick = () => {
 		this.setState({
 			isOpen: !this.state.isOpen,
 		});
 	};
+
 	handleChange = e => {
 		this.setState({
 			value: e.target.value,
 		});
 	};
+
+	ul = React.createRef();
+
 	handleSubmit = async e => {
 		e.preventDefault();
 		const data = {
@@ -31,16 +36,18 @@ class TodoContainer extends Component {
 			todos,
 			value: '',
 		});
-        this.localStorageSave(todos);
-        this.ul.current.scrollTop = this.ul.current.scrollHeight;
+		this.localStorageSave(todos);
+		this.ul.current.scrollTop = this.ul.current.scrollHeight;
 	};
-	handleDone = id => {
+
+	checkDone = id => {
 		const todos = this.state.todos.map(todo => (todo.id === id ? { ...todo, done: !todo.done } : todo));
 		this.setState({
 			todos,
 		});
 		this.localStorageSave(todos);
 	};
+
 	handleRemove = id => {
 		const todos = this.state.todos.filter(todo => todo.id !== id);
 		this.setState({
@@ -48,11 +55,13 @@ class TodoContainer extends Component {
 		});
 		this.localStorageSave(todos);
 	};
+
 	localStorageSave = todos => {
-		localStorage.setItem('TODO', JSON.stringify(todos));
+		localStorage.setItem('MOMENTUM_TODO', JSON.stringify(todos));
 	};
+
 	getTodos = () => {
-		const todos = localStorage.getItem('TODOS');
+		const todos = localStorage.getItem('MOMENTUM_TODO');
 		const parsedToDos = JSON.parse(todos);
 		if (todos !== null) {
 			this.setState({
@@ -60,11 +69,13 @@ class TodoContainer extends Component {
 			});
 		}
 	};
+
 	componentDidMount() {
-        this.getTodos();
+		this.getTodos();
 	}
+
 	render() {
-        const { isOpen, value, todos } = this.state;
+		const { isOpen, value, todos } = this.state;
 		return (
 			<TodoPresenter
 				isOpen={isOpen}
@@ -73,7 +84,7 @@ class TodoContainer extends Component {
 				handleClick={this.handleClick}
 				handleChange={this.handleChange}
 				handleSubmit={this.handleSubmit}
-				handleDone={this.handleDone}
+				checkDone={this.checkDone}
 				handleRemove={this.handleRemove}
 				ul={this.ul}
 			/>

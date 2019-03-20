@@ -15,7 +15,7 @@ class SearchContainer extends Component {
 			value: e.target.value,
 		});
 	};
-	handleIcon = () => {
+	searchButton = () => {
 		this.setState({
 			isOpen: !this.state.isOpen,
 		});
@@ -28,7 +28,7 @@ class SearchContainer extends Component {
 				isOpen={isOpen}
 				handleSubmit={this.handleSubmit}
 				handleChange={this.handleChange}
-				handleIcon={this.handleIcon}
+				searchButton={this.searchButton}
 			/>
 		);
 	}

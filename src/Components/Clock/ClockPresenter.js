@@ -9,12 +9,13 @@ const Container = styled.div`
 `;
 
 const Time = styled.span`
-	font-size: 3em;
+	font-size: 10em;
+	font-weight: 500;
 	margin-bottom: 0.5rem;
 `;
 
 const Greeting = styled.span`
-	font-size: 2rem;
+	font-size: 3rem;
 `;
 
 const Clock = ({ name, time, greeting }) => (

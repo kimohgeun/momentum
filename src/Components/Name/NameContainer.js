@@ -14,7 +14,6 @@ class NameContainer extends Component {
 		e.preventDefault();
 		const { value } = this.state;
 		this.props.saveName(value);
-		localStorage.setItem('NAME', value);
 	};
 	render() {
 		const { value } = this.state;
