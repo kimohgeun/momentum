@@ -1,0 +1,11 @@
+{
+  "main.js": "/momentum/static/js/main.c41043de.chunk.js",
+  "main.js.map": "/momentum/static/js/main.c41043de.chunk.js.map",
+  "static/js/1.7ae9e1d6.chunk.js": "/momentum/static/js/1.7ae9e1d6.chunk.js",
+  "static/js/1.7ae9e1d6.chunk.js.map": "/momentum/static/js/1.7ae9e1d6.chunk.js.map",
+  "runtime~main.js": "/momentum/static/js/runtime~main.affc7222.js",
+  "runtime~main.js.map": "/momentum/static/js/runtime~main.affc7222.js.map",
+  "index.html": "/momentum/index.html",
+  "precache-manifest.a3fd51ad2314744944fc9aedfdf00f30.js": "/momentum/precache-manifest.a3fd51ad2314744944fc9aedfdf00f30.js",
+  "service-worker.js": "/momentum/service-worker.js"
+}
